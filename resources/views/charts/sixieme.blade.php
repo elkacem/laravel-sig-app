@@ -1,15 +1,15 @@
 aDatasets1 =[
-@foreach ($res['COMMUNE'] as $key=>$re)
-    {{ $res['NBR'][$key] ?? '0' }},
+@foreach ($res5['DAIRA'] as $key=>$re)
+    {{ $res5['NBRP'][$key] ?? '0' }},
 @endforeach
 ];
-var ctx = document.getElementById("areaChart");
+var ctx = document.getElementById("pieChart");
 var barChart = new Chart(ctx, {
 type: 'bar',
 data: {
 labels: [
-@foreach ($res['COMMUNE'] as $key=>$re)
-    '{{ $res['COMMUNE'][$key]  }}',
+@foreach ($res5['DAIRA'] as $key=>$re)
+    '{{ $res5['DAIRA'][$key]  }}',
 @endforeach
 ],
 datasets: [ {
@@ -39,7 +39,7 @@ beginAtZero:true
 },
 title: {
 display: true,
-text: 'Nombre des crimes pour chaque communes'
+text: 'Nombre des postePolice par daira'
 },
 responsive: true,
 

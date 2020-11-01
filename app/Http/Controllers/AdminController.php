@@ -6,10 +6,10 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    public function index2(){
+    public function index2($requete){
         $c = oci_pconnect("entrepot", "crime", "//localhost/ORCL");
 
-        $s = oci_parse($c, 'select commune,count(nvie) as nbr from crime,crimes where  id_locf=id  group by commune');
+        $s = oci_parse($c, 'select commune,sum(nbrcrime) as nbr from crime,crimes where  id_locf=id  group by commune');
         oci_execute($s);
         oci_fetch_all($s, $res);
 
@@ -26,8 +26,17 @@ class AdminController extends Controller
         oci_execute($s3);
         oci_fetch_all($s3, $res3);
 
+        $s4 = oci_parse($c, 'select lib,count(agem) as nbra from crime,trancheage where  id_trn_agef=id_trn_age  group by lib');
+        oci_execute($s4);
+        oci_fetch_all($s4, $res4);
 
-        return view('charts',compact('res','res1','res2','res3'));
+        $s5 = oci_parse($c, 'select daira,count(*) nbrp from postepolice  group by daira');
+        oci_execute($s5);
+        oci_fetch_all($s5, $res5);
+
+
+
+        return view('charts',compact('res','res1','res2','res3','res4','res5','requete'));
     }
 }
 

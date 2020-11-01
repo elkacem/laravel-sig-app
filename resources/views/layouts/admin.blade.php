@@ -30,9 +30,9 @@
 
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-    @yield('maps')
+
 </head>
-<body class="hold-transition sidebar-mini layout-fixed" onload=javascript:showMap();>
+<body class="hold-transition sidebar-mini layout-fixed" >
 <div class="wrapper">
 
     <!-- Navbar -->
@@ -56,7 +56,7 @@
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
-        <a href="index3.html" class="brand-link">
+        <a href="https://fr.wikipedia.org/wiki/Criminologie#:~:text=La%20criminologie%20est%20l'%C3%A9tude,de%20vue%20individuel%20et%20social." class="brand-link">
             <img src="{{asset('dist/img/logo.png')}} " alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
                  style="">
             <span class="brand-text font-weight-light">Criminologie</span>
@@ -67,66 +67,27 @@
 
             <!-- Sidebar Menu -->
             <nav class="mt-2">
-                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview"  data-accordion="false">
                     <!-- Add icons to the links using the .nav-icon class
                          with font-awesome or any other icon font library -->
                     <li class="nav-item has-treeview">
-                        <a href="#" class="nav-link active">
-                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <a href="/charts" class="nav-link active">
+                            <i class="nav-icon fas fa-chart-pie"></i>
                             <p>
                                 Requête
-                                <i class="right fas fa-angle-left"></i>
+
                             </p>
                         </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="./index.html" class="nav-link active">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Requête R1</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="./index2.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Requête R2</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="./index3.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Requête R3</p>
-                                </a>
-                            </li>
-                        </ul>
+
                     </li>
                     <li class="nav-item has-treeview">
-                        <a href="#" class="nav-link active">
-                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <a href="/maps" class="nav-link active">
+                            <i class="nav-icon fas fa-copy"></i>
                             <p>
                                 GeneralisationC
-                                <i class="right fas fa-angle-left"></i>
+
                             </p>
                         </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="./index.html" class="nav-link active">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>échelle E1</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="./index2.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>échelle E2</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="./index3.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>échelle E3</p>
-                                </a>
-                            </li>
-                        </ul>
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link">
@@ -147,16 +108,17 @@
     </div>
     <!-- /.content-wrapper -->
     <footer class="main-footer">
-        <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong>
+        <strong>Copyright &copy; 2020 </strong>
         All rights reserved.
         <div class="float-right d-none d-sm-inline-block">
-            <b>Version</b> 3.0.5
+            <b>Version</b> 1.0
         </div>
     </footer>
 
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">
         <!-- Control sidebar content goes here -->
+
     </aside>
     <!-- /.control-sidebar -->
 </div>
@@ -200,9 +162,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js"></script>
-
 @yield('scripts')
-@yield('ok')
 </body>
 </html>
 

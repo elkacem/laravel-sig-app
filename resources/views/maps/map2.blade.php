@@ -8,7 +8,7 @@
             var baseURL  = "http://localhost:8080/mapviewer";
             var mapCenterLon = 3.092;
             var mapCenterLat =  36.701;
-            var mapZoom      =  3;
+            var mapZoom      =  1;
             var mpoint = new OM.geometry.Point(mapCenterLon,mapCenterLat,8307);
             var map = new OM.Map(
                 document.getElementById('map'),
@@ -19,7 +19,7 @@
                 "tileLayer",
                 {
                     dataSource:"mvdemo",
-                    tileLayer:"ZOOMINTELLIGENT",
+                    tileLayer:"ECHELLE2",
                     tileServerURL:baseURL+"/mcserver"
                 });
             map.addLayer(tileLayer) ;

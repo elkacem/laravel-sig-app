@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <!--
 This is a starter template page. Use this page to start your new project from
@@ -35,20 +34,53 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css">
 
+
+
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <script language="Javascript" src="http://localhost:8080/mapviewer/jslib/v2/oraclemapsv2.js"></script>
+    <script language=javascript>
+        function showMap()
+        {
+            OM.gv.setResourcePath("http://localhost:8080/mapviewer/jslib/v2");
+            var baseURL  = "http://localhost:8080/mapviewer";
+            var mapCenterLon = 3.092;
+            var mapCenterLat =  36.701;
+            var mapZoom      =  3;
+            var mpoint = new OM.geometry.Point(mapCenterLon,mapCenterLat,8307);
+            var map = new OM.Map(
+                document.getElementById('map'),
+                {
+                    mapviewerURL: baseURL
+                }) ;
+            var tileLayer = new OM.layer.TileLayer(
+                "tileLayer",
+                {
+                    dataSource:"mvdemo",
+                    tileLayer:"ZOOMINTELLIGENT",
+                    tileServerURL:baseURL+"/mcserver"
+                });
+            map.addLayer(tileLayer) ;
+            navigationPanelBar=new OM.control.NavigationPanelBar();
+            navigationPanelBar.setStyle({backgroundColor:"#FFFFFF",buttonColor:"#808080",size:12});
+            map.addMapDecoration(navigationPanelBar);
+            map.setMapCenter(mpoint);
+            map.setMapZoomLevel(mapZoom) ;
+            map.init() ;
+        }
+    </script>
+
 
 
 
 </head>
-<body class="hold-transition sidebar-collapse layout-top-nav">
-<div class="wrapper">
+<body class="hold-transition sidebar-collapse layout-top-nav" onload=javascript:showMap();>
 
     <!-- Navbar -->
     <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
         <div class="container">
             <a href="https://fr.wikipedia.org/wiki/Criminologie#:~:text=La%20criminologie%20est%20l'%C3%A9tude,de%20vue%20individuel%20et%20social." class="brand-link">
-                <img src="{{asset('dist/img/logo.png')}} "  class="brand-image img-circle elevation-3"
+                <img src="{{asset('dist/img/logo.png')}} " class="brand-image img-circle elevation-3"
                      style="">
                 <span class="brand-text font-weight-light">Criminologie</span>
             </a>
@@ -61,7 +93,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <div class="collapse navbar-collapse order-3" id="navbarCollapse">
                 <!-- Left navbar links -->
                 <ul class="navbar-nav">
-
+                    <li class="nav-item">
+                        <a href="/" class="nav-link">Home</a>
+                    </li>
                     <li class="nav-item">
                         <a href="/maps" class="nav-link">Généralisation</a>
                     </li>
@@ -111,113 +145,25 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </nav>
     <!-- /.navbar -->
 
-
-
-
-    <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        <div class="content-header">
-            <div class="container">
-                <div class="row mb-2">
-                    <div class="col-sm-6">
-
-                    </div><!-- /.col -->
-                    <div class="col-sm-6">
-
-                    </div><!-- /.col -->
-                </div><!-- /.row -->
-            </div><!-- /.container-fluid -->
-        </div>
-        <!-- /.content-header -->
+    <!-- Main Sidebar Container -->
+    <div class="content-header">
+        <div class="container">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0 text-dark"> Map Généralisé  </h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
 
         <!-- Main content -->
-        <div class="container-fluid">
+        <div id="map" style="left:0px; top:0px; width:100%; height:100%; float: right;z-index: inherit"></div>
 
-
-            <style>
-                html, body {
-                    background-color: #fff;
-                    color: #636b6f;
-                    font-family: 'Nunito', sans-serif;
-                    font-weight: 200;
-                    height: 100vh;
-                    margin: 0;
-                }
-
-                .full-height {
-                    height: 100vh;
-                }
-
-                .flex-center {
-                    align-items: center;
-                    display: flex;
-                    justify-content: center;
-                }
-
-                .position-ref {
-                    position: relative;
-                }
-
-                .top-right {
-                    position: absolute;
-                    right: 10px;
-                    top: 18px;
-                }
-
-                .content {
-                    text-align: center;
-                }
-
-                .title {
-                    font-size: 84px;
-                }
-
-                .links > a {
-                    color: #636b6f;
-                    padding: 0 25px;
-                    font-size: 13px;
-                    font-weight: 600;
-                    letter-spacing: .1rem;
-                    text-decoration: none;
-                    text-transform: uppercase;
-                }
-
-                .m-b-md {
-                    margin-bottom: 30px;
-                }
-            </style>
-
-
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Criminologie
-                </div>
-                <img src="{{asset('dist/img/logo.png')}} " alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-                     style="">
-
-            </div>
-
-
-
-
-
-
-
-        </div><!-- /.container-fluid -->
-    <!-- /.content -->
-    </div>
     <!-- /.content-wrapper -->
 
     <!-- Control Sidebar -->
-    <aside class="control-sidebar control-sidebar-dark">
-        <!-- Control sidebar content goes here -->
-        <div class="p-3">
-            <h5>Title</h5>
-            <p>Sidebar content</p>
-        </div>
-    </aside>
     <!-- /.control-sidebar -->
 
     <!-- Main Footer -->
@@ -229,50 +175,32 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- Default to the left -->
         <strong>Copyright &copy; 2020  All rights reserved.
     </footer>
-</div>
 <!-- ./wrapper -->
-
-<!-- REQUIRED SCRIPTS -->
-<!-- jQuery -->
-<script src="{{ asset('plugins/jquery/jquery.min.js')  }}"></script>
-<!-- jQuery UI 1.11.4 -->
-<script src="{{ asset('plugins/jquery-ui/jquery-ui.min.js')  }}"></script>
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-<script>
-    $.widget.bridge('uibutton', $.ui.button)
-</script>
-<!-- Bootstrap 4 -->
-<script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js')  }}"></script>
-<!-- ChartJS -->
-<script src="{{ asset('plugins/chart.js/Chart.min.js')  }}"></script>
-<!-- Sparkline -->
-<script src="{{ asset('plugins/sparklines/sparkline.js')  }}"></script>
-<!-- JQVMap -->
-<script src="{{ asset('plugins/jqvmap/jquery.vmap.min.js')  }}"></script>
-<script src="{{ asset('plugins/jqvmap/maps/jquery.vmap.usa.js')  }}"></script>
-<!-- jQuery Knob Chart -->
-<script src="{{ asset('plugins/jquery-knob/jquery.knob.min.js')  }}"></script>
-<!-- daterangepicker -->
-<script src="{{ asset('plugins/moment/moment.min.js')  }}"></script>
-<script src="{{ asset('plugins/daterangepicker/daterangepicker.js')  }}"></script>
-<!-- Tempusdominus Bootstrap 4 -->
-<script src="{{ asset('plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js')  }}"></script>
-<!-- Summernote -->
-<script src="{{ asset('plugins/summernote/summernote-bs4.min.js')  }}"></script>
-<!-- overlayScrollbars -->
-<script src="{{ asset('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')  }}"></script>
-<!-- AdminLTE App -->
-<script src="{{ asset('dist/js/adminlte.js')  }}"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{{ asset('dist/js/pages/dashboard.js')  }}"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="{{ asset('dist/js/demo.js')  }}"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js"></script>
-
-
+    <script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js')  }}"></script>
+    <!-- ChartJS -->
+    <script src="{{ asset('plugins/chart.js/Chart.min.js')  }}"></script>
+    <!-- Sparkline -->
+    <script src="{{ asset('plugins/sparklines/sparkline.js')  }}"></script>
+    <!-- JQVMap -->
+    <script src="{{ asset('plugins/jqvmap/jquery.vmap.min.js')  }}"></script>
+    <script src="{{ asset('plugins/jqvmap/maps/jquery.vmap.usa.js')  }}"></script>
+    <!-- jQuery Knob Chart -->
+    <script src="{{ asset('plugins/jquery-knob/jquery.knob.min.js')  }}"></script>
+    <!-- daterangepicker -->
+    <script src="{{ asset('plugins/moment/moment.min.js')  }}"></script>
+    <script src="{{ asset('plugins/daterangepicker/daterangepicker.js')  }}"></script>
+    <!-- Tempusdominus Bootstrap 4 -->
+    <script src="{{ asset('plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js')  }}"></script>
+    <!-- Summernote -->
+    <script src="{{ asset('plugins/summernote/summernote-bs4.min.js')  }}"></script>
+    <!-- overlayScrollbars -->
+    <script src="{{ asset('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')  }}"></script>
+    <!-- AdminLTE App -->
+    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+    <script src="{{ asset('dist/js/pages/dashboard.js')  }}"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="{{ asset('dist/js/demo.js')  }}"></script>
 </body>
 </html>
+
 

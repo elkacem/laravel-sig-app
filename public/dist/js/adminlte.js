@@ -808,7 +808,7 @@
         var expandedEvent = $.Event(Event.EXPANDED);
 
         if (this._config.accordion) {
-          var openMenuLi = parentLi.siblings(Selector.OPEN).first();
+              var openMenuLi = parentLi.siblings(Selector.OPEN).first();
           var openTreeview = openMenuLi.find(Selector.TREEVIEW_MENU).first();
           this.collapse(openTreeview, openMenuLi);
         }

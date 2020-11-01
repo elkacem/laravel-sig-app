@@ -6,7 +6,7 @@ labels: [@foreach ($res2['ANNE'] as $key=>$re)
 @endforeach],
 datasets: [
 {
-label: '# of Votes',
+label: 'Nombre des crimes',
 data: [@foreach ($res2['ANNE'] as $key=>$re)
     {{ $res2['NBR1'][$key] ?? '0' }},
 @endforeach],

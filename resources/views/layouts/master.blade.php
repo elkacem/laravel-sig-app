@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <!--
 This is a starter template page. Use this page to start your new project from
@@ -48,7 +47,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
         <div class="container">
             <a href="https://fr.wikipedia.org/wiki/Criminologie#:~:text=La%20criminologie%20est%20l'%C3%A9tude,de%20vue%20individuel%20et%20social." class="brand-link">
-                <img src="{{asset('dist/img/logo.png')}} "  class="brand-image img-circle elevation-3"
+                <img src="{{asset('dist/img/logo.png')}} " class="brand-image img-circle elevation-3"
                      style="">
                 <span class="brand-text font-weight-light">Criminologie</span>
             </a>
@@ -121,10 +120,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <div class="container">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-
+                        <h1 class="m-0 text-dark"> Graphes et Tableaux Statistique  </h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
-
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
@@ -132,81 +133,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- /.content-header -->
 
         <!-- Main content -->
-        <div class="container-fluid">
-
-
-            <style>
-                html, body {
-                    background-color: #fff;
-                    color: #636b6f;
-                    font-family: 'Nunito', sans-serif;
-                    font-weight: 200;
-                    height: 100vh;
-                    margin: 0;
-                }
-
-                .full-height {
-                    height: 100vh;
-                }
-
-                .flex-center {
-                    align-items: center;
-                    display: flex;
-                    justify-content: center;
-                }
-
-                .position-ref {
-                    position: relative;
-                }
-
-                .top-right {
-                    position: absolute;
-                    right: 10px;
-                    top: 18px;
-                }
-
-                .content {
-                    text-align: center;
-                }
-
-                .title {
-                    font-size: 84px;
-                }
-
-                .links > a {
-                    color: #636b6f;
-                    padding: 0 25px;
-                    font-size: 13px;
-                    font-weight: 600;
-                    letter-spacing: .1rem;
-                    text-decoration: none;
-                    text-transform: uppercase;
-                }
-
-                .m-b-md {
-                    margin-bottom: 30px;
-                }
-            </style>
-
-
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Criminologie
-                </div>
-                <img src="{{asset('dist/img/logo.png')}} " alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-                     style="">
-
-            </div>
-
-
-
-
-
-
-
-        </div><!-- /.container-fluid -->
-    <!-- /.content -->
+    @yield('content')
+        <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
 
@@ -271,8 +199,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js"></script>
-
+@yield('scripts')
 
 </body>
 </html>
-
