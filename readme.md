@@ -1,1 +1,2 @@
-This is a sig project analysing criminology phenomena
+This is a geographic information system (GIS) project analysing criminology phenomena
+Laravel
